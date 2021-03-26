@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>キャンプ場検索</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="search_area">
+    <div id="logo"><img src="camp.jpeg" width="440px" height="200px" class="logo_image"></div>
+    <input type="text" id="search_text"placeholder="キャンプ場検索">
+    <button id="search_button">検索</button>
+    <h1><button id="move">オススメはこちら</button></h1>
+    <div id="loading" style="display: none;"><img src="icon_loader_f_ww_01_s1.gif" class="loading_icon"></div>
+    <div id="result"></div>
+    <div id="myMap" style="position:relative;width:100%;height:600px;"></div>
+  </div>
+<!-- ​マップを入れる -->
+<script src="https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=[AlExo_PkO_sZxLIxQHXlK5E-4Mdw_w-9XxpT_TOTCxQIy7oQaxCt7Rs_e26899kt]"async defer></script>
+
+<script>
+let map;
+function GetMap() {
+  map = new Microsoft.Maps.Map('#myMap', {
+  center: new Microsoft.Maps.Location(43.068564, 141.3507138), //Location center position
+  mapTypeId: Microsoft.Maps.MapTypeId.load, //aerial,canvasDark,canvasLight,birdseye,grayscale,streetside
+  zoom: 14  //Zoom:1=zoomOut ~ 20=zoomUp
+  });
+  Microsoft.Maps.Events.addHandler(map,'click',function(){
+  alert("そこのキャンプ場いいよね");
+  });
+}  
+document.getElementById("move").onclick=function(){
+  map.setView({
+    mapTypeId:Microsoft.Maps.MapTypeId.aerial,
+    center:new Microsoft.Maps.Location(42.6199767,141.4515953),
+    zoom:19
+  });
+}
+
+
+</script>
+</body>
+</html>

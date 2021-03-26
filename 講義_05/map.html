@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id ="myMap"　style= 'position:relative;width:600px;height:400px'></div>
+<script>
+src='https://www.bing.com/api/maps/mapcontrol?key=ArSZbZdOs92gxOfv2DtNJhM-j0DcWkBbSlxxQ_9AGVmdMXtno-Iwu9lI8TYTT7U1&callback=GetMap'</script>
+<script>
+    function GetMap(){
+        const map = new Microsoft.Maps.Map('#myMaps',{
+            center: new Microsoft.Maps.Location(47.6149,-122.1941),
+            mapTypeId:Microsoft.Maps.MapTypeId.load,//loadが変わるところ
+            zoom:16
+        });
+    }
+</script>
+
+
+
+
+</body>
+</html>
